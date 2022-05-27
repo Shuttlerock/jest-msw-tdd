@@ -1,0 +1,11 @@
+type Mutation {
+  MakeReservation(input: Reservation): Boolean!
+}
+
+input Reservation {
+    id: String!
+}
+
+type Query {
+  Reservations: Boolean!
+}
