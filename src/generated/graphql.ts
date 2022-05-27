@@ -17,34 +17,41 @@ export type Scalars = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  MakeReservation: Scalars['Boolean'];
+  MakeReservation: Reservation;
 };
 
 
 export type MutationMakeReservationArgs = {
-  input?: InputMaybe<Reservation>;
+  input: ReservationInput;
 };
 
 export type Query = {
   __typename?: 'Query';
-  Reservations: Scalars['Boolean'];
+  Reservations: Reservation;
 };
 
 export type Reservation = {
+  __typename?: 'Reservation';
+  id: Scalars['String'];
+};
+
+export type ReservationInput = {
   id: Scalars['String'];
 };
 
 export type MakeReservationMutationVariables = Exact<{
-  reservation: Reservation;
+  reservationInput: ReservationInput;
 }>;
 
 
-export type MakeReservationMutation = { __typename?: 'Mutation', MakeReservation: boolean };
+export type MakeReservationMutation = { __typename?: 'Mutation', MakeReservation: { __typename?: 'Reservation', id: string } };
 
 
 export const MakeReservationDocument = gql`
-    mutation makeReservation($reservation: Reservation!) {
-  MakeReservation(input: $reservation)
+    mutation makeReservation($reservationInput: ReservationInput!) {
+  MakeReservation(input: $reservationInput) {
+    id
+  }
 }
     `;
 

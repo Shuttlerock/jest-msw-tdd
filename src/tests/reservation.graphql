@@ -1,3 +1,5 @@
-mutation makeReservation($reservation: Reservation!) {
-    MakeReservation(input: $reservation)
+mutation makeReservation($reservationInput: ReservationInput!) {
+    MakeReservation(input: $reservationInput) {
+        id
+    }
 }
